@@ -14,8 +14,10 @@ class AppCreator:
         pass
 
 obj1 = AppCreator()
+print(obj1)
 
 try:
   obj2 = AppCreator()
+  print(obj2)
 except Exception as error:
   print(error)
