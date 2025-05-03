@@ -23,6 +23,29 @@ except Exception as error:
   print(error)
 
 
+# Override new method
+from datetime import datetime
+
+class XYZ:
+    ins = None
+    
+    def __new__(cls):
+        print("Creating Instance")
+        if not XYZ.ins:
+            XYZ.ins = super(XYZ, cls).__new__(cls)
+        return XYZ.ins
+    
+    def __init__(self, *args, **kwargs):
+        self.time = datetime.now()
+
+a = XYZ()
+print(a.time)
+
+b = XYZ()
+print(b.time)
+
+print(a == b)
+
 # Singlton Class 
 class Singleton:
     __instance = None
